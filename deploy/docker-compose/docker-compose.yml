@@ -28,6 +28,8 @@ services:
     restart: always
   catalogue:
     image: weaveworksdemos/catalogue:0.3.5
+    ports:
+      - '9001:80'
     hostname: catalogue
     restart: always
     cap_drop:
@@ -45,6 +47,8 @@ services:
       - MYSQL_DATABASE=socksdb
   carts:
     image: weaveworksdemos/carts:0.4.8
+    ports:
+      - '9002:80'
     hostname: carts
     restart: always
     cap_drop:
@@ -71,6 +75,8 @@ services:
       - /tmp:rw,noexec,nosuid
   orders:
     image: weaveworksdemos/orders:0.4.7
+    ports:
+      - '9003:80'
     hostname: orders
     restart: always
     cap_drop:
@@ -144,6 +150,8 @@ services:
     read_only: true
   user:
     image: weaveworksdemos/user:0.4.4
+    ports:
+      - '9006:80'
     hostname: user
     restart: always
     cap_drop:
